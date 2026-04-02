@@ -29,7 +29,7 @@
                         d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
                 </svg>
             </button>
-            <button class="icon-btn" aria-label="Cart">
+            <button class="icon-btn" aria-label="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-search-icon lucide-search">
@@ -37,7 +37,7 @@
                     <circle cx="11" cy="11" r="8" />
                 </svg>
             </button>
-            <button class="icon-btn" aria-label="Search">
+            <button class="icon-btn" aria-label="Cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
@@ -65,50 +65,88 @@
     </section>
     <section class="featured-products">
         <h2 class="header">Featured Products</h2>
-        <div class="product-grid">
-            <article class="product-card">
-                <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
-                <p class="product-info">Yonex Astrox 100zz</p>
-                <p class="category">Badminton Racket</p>
-                <button class="btn-add-cart">Add to cart</button>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
-                <p>Yonex Astrox 100zz</p>
-                <p>Badminton Racket</p>
-                <button class="btn-add-cart">Add to cart</button>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
-                <p>Yonex Astrox 100zz</p>
-                <p>Badminton Racket</p>
-                <button class="btn-add-cart">Add to cart</button>
-            </article>
-            <article class="product-card">
-                <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
-                <p>Yonex Astrox 100zz</p>
-                <p>Badminton Racket</p>
-                <button class="btn-add-cart">Add to cart</button>
-            </article>
+        <div class="slider-container">
+            <div class="product-grid" id="productGrid">
+                <article class="product-card">
+                    <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
+                    <p class="product-info">Yonex Astrox 100zz</p>
+                    <p class="category">Badminton Racket</p>
+                    <p class="price">$329.99 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="/images/SHBSG1MEX-144-A.webp">
+                    <p class="product-info">Yonex Men's Subaxia GT - Dark Grey</p>
+                    <p class="category">Indoor Shoes</p>
+                    <p class="price">$239.95 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="/images/52883-phase1-main2.webp">
+                    <p class="product-info">Franklin Pro Series Paddle Bag - Black/White</p>
+                    <p class="category">Badminton Racket</p>
+                    <p class="price">$179.99 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="/images/8524_SLK-Halo-Pro-XL-RD-A.webp">
+                    <p class="product-info">Selkirk SLK Halo Pro - XL</p>
+                    <p class="category">Pickleball</p>
+                    <p class="price">$239.95 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="/images/101565-100-A.webp">
+                    <p class="product-info">Babolat Evo Aero Lite Pink Gen 2 Unstrung (101565-100)</p>
+                    <p class="category">Pickleball</p>
+                    <p class="price">$239.95 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+                <article class="product-card">
+                    <img class="product-image" src="/images/yasaka-mark-v-carbon.webp">
+                    <p class="product-info">Racket Yasaka Mark V Carbon</p>
+                    <p class="category">Pickleball</p>
+                    <p class="price">$239.95 CAD</p>
+                    <button class="btn-add-cart">Add to cart</button>
+                </article>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevBtn" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="slider-btn" id="nextBtn" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <button class="btn-view-all">View All Products <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div>
-            <button class="btn-view-all">View All Products <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                </svg>
-            </button>
-        </div>
+
+
     </section>
     <section class="shop-by-categories">
         <h2>Shop By Categories</h2>
         <div class="category-buttons">
             <a href="#" class="btn-category">Tennis Rackets</a>
             <a href="#" class="btn-category">Badminton Rackets</a>
+            <a href="#" class="btn-category">Pickleball</a>
             <a href="#" class="btn-category">Table Tennis</a>
             <a href="#" class="btn-category">Racket Bags</a>
+            <a href="#" class="btn-category">Shoes</a>
         </div>
     </section>
     <footer>
@@ -130,10 +168,13 @@
                 <ul>
                     <li><a href="">FAQ</a></li>
                     <li><a href="">Size Guide</a></li>
-                    <li><a href="">Terms</a></li>
+                    <li><a href="">Terms
+
                 </ul>
             </div>
+        </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
