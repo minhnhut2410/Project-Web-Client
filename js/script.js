@@ -3,7 +3,6 @@ const textTitle = [
     "Discover our Products",
     "Best Quality Sport Gear",
     "Upgrade Your Game Today",
-    "Special Offers Just For You"
 ];
 
 let index = 0;
@@ -18,9 +17,31 @@ setInterval(function () {
         }
         heroTitle.textContent = textTitle[index];
         heroTitle.classList.remove('fade-out');
-
+        const heroDots = document.querySelectorAll('.dot');
+        heroDots.forEach(dot => dot.classList.remove('active'));
+        heroDots[index].classList.add('active');
     }, 500)
 }, 3000);
+const heroDots = document.querySelectorAll('.dot');
+
+heroDots.forEach((dot, i) => {
+    dot.addEventListener('click', function () {
+
+        index = i; 
+
+        heroTitle.classList.add('fade-out');
+
+        setTimeout(() => {
+            heroTitle.textContent = textTitle[index];
+            heroTitle.classList.remove('fade-out');
+
+            heroDots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+
+        }, 500);
+    });
+});
+    // hero-dot-active
 const productGrid = document.getElementById('productGrid');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');

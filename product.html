@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+    <header>
+        <h2>Sport Store</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="/product.html">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn" aria-label="Dark Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon-icon lucide-moon">
+                    <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-search-icon lucide-search">
+                    <path d="m21 21-4.34-4.34" />
+                    <circle cx="11" cy="11" r="8" />
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                    <circle cx="8" cy="21" r="1" />
+                    <circle cx="19" cy="21" r="1" />
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                </svg>
+            </button>
+
+            <a href="#" class="btn-login">Login</a>
+        </div>
+    </header>
+    <div>
+        <h1 class="mb-4 ms-5 me-5 mt-5">Our Products</h1>
+    </div>
+        <div class="mb-4 ms-5 me-5">
+            <div class="position-relative rounded shadow-sm">
+                <span class=" position-absolute top-50 start-0 translate-middle-y ms-3 text-muted">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21 21-4.34-4.34" />
+                        <circle cx="11" cy="11" r="8" />
+                    </svg>
+                </span>
+                <input type="text" class="form-control py-4 ps-5" placeholder="Search products...">
+            </div>
+        </div>
+    </div>
+    </div>
+    <div>
+        <div class="mb-4 ms-5 me-5">
+            <span class="fw-medium text-muted fs-3">Filter by category:</span>
+        </div>
+        <div class="d-flex flex-wrap mb-4 ms-5 me-5 gap-2 ">
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">All</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Tennis Rackets</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Badminton Rackets</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Pickleball</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Table Tennis</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Racket Bags</button>
+            <button class="btn bg-white active rounded-pill px-4 py-3 fw-bold border">Shoes</button>
+        </div>
+    </div>
+    <div class="product-grid" id="productGrid">
+        <article class="product-card">
+            <img class="product-image" src="/images/ASTROX100ZZVAF-GRBE-4UG5-A.webp">
+            <p class="product-info">Yonex Astrox 100zz</p>
+            <p class="category">Badminton Racket</p>
+            <p class="price">$329.99 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/SHBSG1MEX-144-A.webp">
+            <p class="product-info">Yonex Men's Subaxia GT - Dark Grey</p>
+            <p class="category">Shoes</p>
+            <p class="price">$239.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/52883-phase1-main2.webp">
+            <p class="product-info">Franklin Pro Series Paddle Bag - Black/White</p>
+            <p class="category">Badminton Racket</p>
+            <p class="price">$179.99 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/8524_SLK-Halo-Pro-XL-RD-A.webp">
+            <p class="product-info">Selkirk SLK Halo Pro - XL</p>
+            <p class="category">Pickleball</p>
+            <p class="price">$239.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/101565-100-A.webp">
+            <p class="product-info">Babolat Evo Aero Lite Pink Gen 2</p>
+            <p class="category">Pickleball</p>
+            <p class="price">$199.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/yasaka-mark-v-carbon.webp">
+            <p class="product-info">Racket Yasaka Mark V Carbon</p>
+            <p class="category">Pickleball</p>
+            <p class="price">$179.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/nb-mc806w.webp">
+            <p class="product-info">New Balance Men's 806 MC806W</p>
+            <p class="category">Shoes</p>
+            <p class="price">$149.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/SHB65Z4MEX-WH-A.webp">
+            <p class="product-info">Yonex Power Cushion SHB 65Z 4 White</p>
+            <p class="category">Shoes</p>
+            <p class="price">$179.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/1041A481-500-A.webp">
+            <p class="product-info">Asics Men's Gel-Resolution X</p>
+            <p class="category">Shoes</p>
+            <p class="price">$199.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/NF800PROF-A.webp">
+            <p class="product-info">Yonex Nanoflare 800 PRO Unstrung Deep Green</p>
+            <p class="category">Badminton Racket</p>
+            <p class="price">$309.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/08VCAPSLScopy.webp">
+            <p class="product-info">Yonex VCore Alpha 100 SL 245g Strung (8th Gen) Ruby Red</p>
+            <p class="category">Pickleball</p>
+            <p class="price">$179.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+        <article class="product-card">
+            <img class="product-image" src="/images/HTCPP02916WIRC-001A-A.webp">
+            <p class="product-info">Six Zero Double Black Diamond Control 16mm - Black</p>
+            <p class="category">Pickleball</p>
+            <p class="price">$179.95 CAD</p>
+            <button class="btn-add-cart">Add to cart</button>
+        </article>
+    </div>
+    <section></section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <p>dfasfdsaf</p>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Shipping Info</a></li>
+                    <li><a href="">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Size Guide</a></li>
+                    <li><a href="">Terms
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

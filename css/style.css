@@ -16,7 +16,6 @@ body {
 
 button {
     cursor: pointer;
-
 }
 
 header h2 {
@@ -50,7 +49,6 @@ a {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Khoảng cách giữa các icon */
 }
 
 .icon-btn {
@@ -97,6 +95,26 @@ a {
     opacity: 0;
 }
 
+.hero-dots {
+    gap: 12px;
+    display: flex;
+    bottom: 25px;
+    position:absolute;
+    align-self: center;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background-color: #888888;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dot.active {
+    background-color: white;
+}
+
 .btn-show-now {
     font-size: 20px;
     border-radius: 4px;
@@ -126,9 +144,9 @@ a {
     gap: 20px;
     overflow-x: auto;
     padding: 10px 0;
-        /* scroll */
-    scroll-behavior: smooth; 
-    scroll-snap-type: x mandatory; 
+    /* scroll */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
 }
 
 /* -> no scroll */
