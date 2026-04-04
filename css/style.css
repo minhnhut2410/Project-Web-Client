@@ -55,7 +55,6 @@ a {
     background: transparent;
     border: none;
     font-size: 25px;
-    cursor: pointer;
     padding: 0;
     color: black;
 }
@@ -275,6 +274,8 @@ a {
 /* --- FOOTER --- */
 footer {
     padding: 60px 5% 20px;
+        background-color: #F3F4F6;
+
 }
 
 .footer-content {

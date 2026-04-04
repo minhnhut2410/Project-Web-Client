@@ -1,13 +1,13 @@
 header {
+    position: sticky;
     background-color: #F3F4F6;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin-top: 0;
     border-bottom: 1px solid #eaeaea;
-    margin-top: 0;
-
+    top: 0;
+    z-index: 1000;
 }
 
 body {
@@ -75,10 +75,11 @@ a {
     width: 30px;
     height: 30px;
 }
+
 .product-grid {
     margin: 48px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     padding: 10px 0;
 }
@@ -107,32 +108,40 @@ a {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.btn-add-cart{
+
+.btn-add-cart {
     border-radius: 4px;
     padding: 8px 15px;
     background-color: black;
     font-weight: bold;
     color: white;
 }
+
 .btn-add-cart:hover {
     background-color: #1E2939;
 }
+
 footer {
     padding: 60px 5% 20px;
+    background-color: #F3F4F6;
 }
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
 }
+
 .footer-column h3 {
     font-size: 26px;
     margin-bottom: 20px;
 }
+
 .footer-column ul {
-    padding-left: 0 ;
+    padding-left: 0;
     margin: 0;
 }
+
 .footer-column ul li {
     align-items: center;
     margin-bottom: 10px;
@@ -141,7 +150,43 @@ footer {
     font-weight: 100;
 
 }
+
 .form-control:focus {
-    border-color: black; 
-    box-shadow: none; 
+    border-color: black;
+    box-shadow: none;
+}
+
+#toast-container {
+    background-color: #ECFDF3;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 8px;
+
+}
+
+.toast-message {
+    color: green;
+    padding: 16px 25px;
+    animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
