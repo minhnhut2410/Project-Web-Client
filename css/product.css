@@ -190,3 +190,13 @@ footer {
         transform: translateY(-20px);
     }
 }
+.cart-badge{
+    top: -7px;
+    background-color: red;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    right:-17px;
+    display: none;
+}

@@ -1,7 +1,8 @@
-const filterButtons = document.querySelectorAll("#filter-buttons button")
-const products = document.querySelectorAll(".product-grid a")
-const searchBtns = document.getElementById("search-bar")
-let currentCategory = 'all'
+const filterButtons = document.querySelectorAll("#filter-buttons button");
+const products = document.querySelectorAll(".product-grid a");
+const searchBtns = document.getElementById("search-bar");
+let currentCategory = 'all';
+const cartBadge = document.getElementById("cart-badge");
 
 function filter() {
     const searchItem = searchBtns.value.toLowerCase().trim();
@@ -32,7 +33,8 @@ searchBtns.addEventListener("input", filter)
 const toastContainer = document.createElement("div");
 toastContainer.id = "toast-container";
 document.body.appendChild(toastContainer);
-function showToast(productName){
+
+function showToast(productName) {
     const toast = document.createElement('div');
     toast.className = "toast-message";
     toast.innerHTML = `✅ Added "${productName}" to cart!`;
@@ -48,7 +50,7 @@ productCards.forEach(product => {
     buttonAddCart.addEventListener('click', () => {
         const productName = product.querySelector(".product-info").textContent
         const obj = {
-            name: productName ,
+            name: productName,
             category: product.querySelector(".category").textContent,
             price: product.querySelector(".price").textContent,
             image: product.querySelector(".product-image").src
@@ -56,8 +58,17 @@ productCards.forEach(product => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         cart.push(obj)
         localStorage.setItem("cart", JSON.stringify(cart));
+        updateCart();
         showToast(productName);
     })
 })
-
-
+//Handle the total of products when add to cart
+function updateCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const total = cart.length;
+    if (total > 0) {
+        cartBadge.style.display = "block";
+        cartBadge.innerText = total;
+    }
+}
+updateCart();
