@@ -62,7 +62,7 @@ if (total > 0) {
         const productPrice = document.createElement("h3");
         productPrice.classList.add("fs-4");
         productPrice.textContent = item.price;
-
+        console.log(item.price)
 
         //add total-section
         const quantityContainer = document.createElement("div");
@@ -76,10 +76,19 @@ if (total > 0) {
         buttonMinus.textContent = "-";
         buttonPlus.textContent = "+";
         quantity.textContent = "1"
+        const totalPrice = document.createElement("p");
+        totalPrice.innerText = item.price;
+        const trashIcon = document.createElement("div");
+        trashIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`
+        trashIcon.classList.add("trash-icon");
+        totalPrice.classList.add("total-price");
         quantityContainer.appendChild(buttonMinus)
-                quantityContainer.appendChild(quantity)
-
+        quantityContainer.appendChild(quantity)
         quantityContainer.appendChild(buttonPlus)
+        const quantityControl = document.createElement("div");
+        quantityControl.appendChild(trashIcon);
+        quantityControl.appendChild(quantityContainer)
+        quantityControl.appendChild(totalPrice)
 
 
         productInfo.appendChild(productCategory);
@@ -87,9 +96,26 @@ if (total > 0) {
         productInfo.appendChild(productPrice);
         productCard.appendChild(productImageContainer);
         productCard.appendChild(productInfo);
-        productCard.appendChild(quantityContainer);
+        productCard.appendChild(quantityControl);
 
         listProduct.appendChild(productCard);
+        buttonMinus.addEventListener('click', function () {
+            if (parseInt(quantity.textContent) > 1) {
+                quantity.textContent = parseInt(quantity.textContent) - 1;
+            }
+            const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+            const total = (parseInt(quantity.textContent) * price).toFixed(2)
+            totalPrice.innerText = "$" + total + " CAD";
+
+        })
+        buttonPlus.addEventListener('click', function () {
+            quantity.textContent = parseInt(quantity.textContent) + 1;
+            const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+
+            const total = (parseInt(quantity.textContent) * price).toFixed(2)
+            totalPrice.innerText = "$" + total + " CAD";
+        })
+
         // <div class="product-card">
         // <div class="product-image-container mb-4 ">
         //     <img id="product-image" src=""></img>
@@ -105,7 +131,6 @@ if (total > 0) {
     grid.appendChild(listProduct);
     grid.appendChild(orderSummary);
     cartSection.appendChild(grid);
-
 
 } else {
     cartSection.classList.add("empty");
