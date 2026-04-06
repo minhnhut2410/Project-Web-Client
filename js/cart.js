@@ -3,7 +3,10 @@ const cartBadge = document.getElementById("cart-badge");
 
 function updateCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const total = cart.length;
+    let total = 0
+    cart.forEach(item => {
+        total += item.quantity;
+    })
     if (total > 0) {
         cartBadge.style.display = "block";
         cartBadge.innerText = total;
@@ -42,50 +45,129 @@ if (total > 0) {
 
     const orderSummaryTitle = document.createElement("h2");
     orderSummaryTitle.textContent = "Order Summary";
+
+    const subTotalWrapper = document.createElement("div");
+    subTotalWrapper.classList.add("summary-item");
+    const subTotal = document.createElement("span");
+    subTotal.classList.add("sub-total");
+    subTotal.innerText = "Subtotal";
+    const subTotalValue = document.createElement("span");
+    let temp = 0;
+    cart.forEach(item => {
+        temp += parseFloat(item.price.replace(/[^0-9.]/g, "")) * parseInt(item.quantity);
+    })
+    subTotalValue.innerText = "$" + temp;
+    subTotalValue.classList.add("sub-total-value");
+    subTotalWrapper.appendChild(subTotal);
+    subTotalWrapper.appendChild(subTotalValue);
+
+    //shipping price
+    const shippingWrapper = document.createElement("div");
+    shippingWrapper.classList.add("summary-item");
+    const shipping = document.createElement("span");
+    shipping.classList.add("shipping");
+    shipping.innerText = "Shipping";
+    const shippingPrice = document.createElement("span");
+    shippingPrice.classList.add("shipping-price");
+    shippingPrice.innerText = "$10.00";
+    shippingWrapper.appendChild(shipping);
+    shippingWrapper.appendChild(shippingPrice);
+    //Tax Price (15%)
+    const taxWrapper = document.createElement("div");
+    taxWrapper.classList.add("summary-item");
+    const tax = document.createElement("span");
+    tax.classList.add("tax");
+    tax.innerText = "Tax(15%)";
+    const taxPrice = document.createElement("span");
+    taxPrice.classList.add("tax-price");
+    taxPrice.innerText = "$" + (parseFloat(subTotalValue.innerText.replace(/[^0-9.]/g, "")) * 0.15).toFixed(2)
+    taxWrapper.appendChild(tax);
+    taxWrapper.appendChild(taxPrice);
+
+    //Total
+    const afterTaxWrapper = document.createElement("div");
+    afterTaxWrapper.classList.add("summary-item", "total");
+    const afterTax = document.createElement("span");
+    afterTax.classList.add("after-tax");
+    afterTax.innerText = "Total";
+    const afterTaxPrice = document.createElement("span");
+    afterTaxPrice.classList.add("after-tax-price");
+    afterTaxPrice.innerText = "$" + (parseFloat(subTotalValue.innerText.replace(/[^0-9.]/g, "")) + parseFloat(shippingPrice.innerText.replace(/[^0-9.]/g, "")) + parseFloat(taxPrice.innerText.replace(/[^0-9.]/g, ""))).toFixed(2);
+    afterTaxWrapper.appendChild(afterTax);
+    afterTaxWrapper.appendChild(afterTaxPrice);
+
     orderSummary.appendChild(orderSummaryTitle);
+    orderSummary.appendChild(subTotalWrapper);
+    orderSummary.appendChild(shippingWrapper);
+    orderSummary.appendChild(taxWrapper)
+    orderSummary.appendChild(afterTaxWrapper)
     cart.forEach(item => {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
+
         const productImageContainer = document.createElement("div");
         productImageContainer.classList.add("product-image-container");
+
         const productImg = document.createElement("img");
         productImg.src = item.image;
         productImageContainer.appendChild(productImg);
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info-container");
+
         const productCategory = document.createElement("div");
         productCategory.classList.add("product-category");
         productCategory.textContent = item.category;
+
         const productTitle = document.createElement("h2");
         productTitle.classList.add("mb-3");
         productTitle.textContent = item.name;
+
         const productPrice = document.createElement("h3");
         productPrice.classList.add("fs-4");
         productPrice.textContent = item.price;
-        console.log(item.price)
 
         //add total-section
         const quantityContainer = document.createElement("div");
         quantityContainer.classList.add("quantity-container");
+
         const buttonMinus = document.createElement("button");
+
         const buttonPlus = document.createElement("button");
+
         const quantity = document.createElement("span");
         quantity.classList.add("quantity");
         buttonMinus.classList.add("btn-minus");
         buttonPlus.classList.add("btn-plus");
         buttonMinus.textContent = "-";
         buttonPlus.textContent = "+";
-        quantity.textContent = "1"
+        quantity.textContent = item.quantity;
+
         const totalPrice = document.createElement("p");
-        totalPrice.innerText = item.price;
+        totalPrice.innerText = "$" + (parseInt(quantity.textContent) * parseFloat(item.price.replace(/[^0-9.]/g, ""))).toFixed(2) + " CAD";
+
         const trashIcon = document.createElement("div");
         trashIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`
         trashIcon.classList.add("trash-icon");
         totalPrice.classList.add("total-price");
+
+        //handle funciton trashicon(Delete)
+        trashIcon.addEventListener("click", function () {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].name === item.name) {
+                    cart.splice(i, 1);
+                    break;
+                }
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            location.reload();
+        })
         quantityContainer.appendChild(buttonMinus)
         quantityContainer.appendChild(quantity)
         quantityContainer.appendChild(buttonPlus)
+
         const quantityControl = document.createElement("div");
+        quantityControl.classList.add("quantity-control-wrapper");
         quantityControl.appendChild(trashIcon);
         quantityControl.appendChild(quantityContainer)
         quantityControl.appendChild(totalPrice)
@@ -102,18 +184,24 @@ if (total > 0) {
         buttonMinus.addEventListener('click', function () {
             if (parseInt(quantity.textContent) > 1) {
                 quantity.textContent = parseInt(quantity.textContent) - 1;
+                item.quantity = parseInt(quantity.textContent);
+                localStorage.setItem("cart", JSON.stringify(cart));
             }
+
             const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
             const total = (parseInt(quantity.textContent) * price).toFixed(2)
             totalPrice.innerText = "$" + total + " CAD";
+            updateCart()
 
         })
         buttonPlus.addEventListener('click', function () {
             quantity.textContent = parseInt(quantity.textContent) + 1;
             const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-
+            item.quantity = parseInt(quantity.textContent);
+            localStorage.setItem("cart", JSON.stringify(cart));
             const total = (parseInt(quantity.textContent) * price).toFixed(2)
             totalPrice.innerText = "$" + total + " CAD";
+            updateCart()
         })
 
         // <div class="product-card">
@@ -170,3 +258,43 @@ if (total > 0) {
                     </svg>`
     cartSection.appendChild(a);
 }
+
+//Change mode 
+const buttonChangeMode = document.querySelector(".icon-btn.btn-change-mode");
+let theme = localStorage.getItem("theme");
+
+if (theme === "dark") {
+    document.body.classList.add("dark");
+    buttonChangeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`
+
+} else {
+    document.body.classList.add("light");
+    buttonChangeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon-icon lucide-moon">
+                    <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                </svg>`
+}
+buttonChangeMode.addEventListener("click", function () {
+    let isDark = document.body.classList.contains("dark");
+    if (!isDark) {
+        buttonChangeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`
+
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark")
+    } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+        localStorage.setItem("theme", "light")
+        buttonChangeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon-icon lucide-moon">
+                    <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                </svg>`
+    }
+})
+
+//handle button delete all
