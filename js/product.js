@@ -1,5 +1,5 @@
     const filterButtons = document.querySelectorAll("#filter-buttons button");
-    const products = document.querySelectorAll(".product-grid a");
+    const products = document.querySelectorAll(".product-card");
     const searchBtns = document.getElementById("search-bar");
     let currentCategory = 'all';
     const cartBadge = document.getElementById("cart-badge");

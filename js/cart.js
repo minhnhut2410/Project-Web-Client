@@ -42,10 +42,10 @@ if (total > 0) {
     const orderSummary = document.createElement("div");
     orderSummary.classList.add("order-summary");
 
-
     const orderSummaryTitle = document.createElement("h2");
     orderSummaryTitle.textContent = "Order Summary";
 
+    //subTotal
     const subTotalWrapper = document.createElement("div");
     subTotalWrapper.classList.add("summary-item");
     const subTotal = document.createElement("span");
@@ -54,9 +54,9 @@ if (total > 0) {
     const subTotalValue = document.createElement("span");
     let temp = 0;
     cart.forEach(item => {
-        temp += parseFloat(item.price.replace(/[^0-9.]/g, "")) * parseInt(item.quantity);
+        temp += (parseFloat(item.price.replace(/[^0-9.]/g, "")) * parseInt(item.quantity));
     })
-    subTotalValue.innerText = "$" + temp;
+    subTotalValue.innerText = "$" + temp.toFixed(2);
     subTotalValue.classList.add("sub-total-value");
     subTotalWrapper.appendChild(subTotal);
     subTotalWrapper.appendChild(subTotalValue);
@@ -96,11 +96,21 @@ if (total > 0) {
     afterTaxWrapper.appendChild(afterTax);
     afterTaxWrapper.appendChild(afterTaxPrice);
 
+    //Proceed to check out 
+    const proceedButton = document.createElement("button");
+    proceedButton.classList.add("btn-proceed");
+    proceedButton.innerText = "Proceed to Checkout";
+    //click
+    proceedButton.addEventListener("click", function() {
+        window.location.href = "/checkout.html"
+    })
     orderSummary.appendChild(orderSummaryTitle);
     orderSummary.appendChild(subTotalWrapper);
     orderSummary.appendChild(shippingWrapper);
-    orderSummary.appendChild(taxWrapper)
-    orderSummary.appendChild(afterTaxWrapper)
+    orderSummary.appendChild(taxWrapper);
+    orderSummary.appendChild(afterTaxWrapper);
+    orderSummary.appendChild(proceedButton);
+
     cart.forEach(item => {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
@@ -116,15 +126,14 @@ if (total > 0) {
         productInfo.classList.add("product-info-container");
 
         const productCategory = document.createElement("div");
-        productCategory.classList.add("product-category");
+        productCategory.classList.add("product-category", "fs-5");
         productCategory.textContent = item.category;
 
         const productTitle = document.createElement("h2");
-        productTitle.classList.add("mb-3");
         productTitle.textContent = item.name;
 
         const productPrice = document.createElement("h3");
-        productPrice.classList.add("fs-4");
+        productPrice.classList.add("fs-4", "mt-2");
         productPrice.textContent = item.price;
 
         //add total-section
@@ -151,7 +160,7 @@ if (total > 0) {
         trashIcon.classList.add("trash-icon");
         totalPrice.classList.add("total-price");
 
-        //handle funciton trashicon(Delete)
+        //handle funciton trash icon(Delete)
         trashIcon.addEventListener("click", function () {
             for (let i = 0; i < cart.length; i++) {
                 if (cart[i].name === item.name) {
@@ -172,9 +181,8 @@ if (total > 0) {
         quantityControl.appendChild(quantityContainer)
         quantityControl.appendChild(totalPrice)
 
-
-        productInfo.appendChild(productCategory);
         productInfo.appendChild(productTitle);
+        productInfo.appendChild(productCategory);
         productInfo.appendChild(productPrice);
         productCard.appendChild(productImageContainer);
         productCard.appendChild(productInfo);
