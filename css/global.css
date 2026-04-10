@@ -68,6 +68,7 @@ a {
     border-radius: 4px;
     font-weight: bold;
     margin-right: 50px;
+    cursor: pointer;
 }
 
 .size-6 {
