@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
 
 </head>
 
 <body>
+
     <header>
         <h2>Sport Store</h2>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li><a href="/product.html">Products</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
@@ -22,7 +25,7 @@
         </nav>
         <div class="header-actions">
             <button class="icon-btn btn-change-mode" aria-label="Dark Mode">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-moon-icon lucide-moon">
                     <path
@@ -30,40 +33,46 @@
                 </svg>
             </button>
             <button class="icon-btn" aria-label="Search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-search-icon lucide-search">
                     <path d="m21 21-4.34-4.34" />
                     <circle cx="11" cy="11" r="8" />
                 </svg>
             </button>
-            <button class="icon-btn" aria-label="Cart">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
-                    <circle cx="8" cy="21" r="1" />
-                    <circle cx="19" cy="21" r="1" />
-                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                </svg>
-            </button>
-
-            <a href="#" class="btn-login">Login</a>
+            <a href="/cart.html">
+                <button class="icon-btn position-relative me-4" aria-label="Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                        <circle cx="8" cy="21" r="1" />
+                        <circle cx="19" cy="21" r="1" />
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
+                    <badge id="cart-badge" class="cart-badge position-absolute">0</badge>
+                </button>
+            </a>
+            <a href="/login.html" id="btn-login" class="btn-login">Login</a>
         </div>
     </header>
+    <div id="toast-container"></div>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Discover our Products</h1>
-            <button class="btn-show-now">Shop Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                </svg>
-            </button>
+            <a href="/product.html">
+                <button class="btn-show-now">Shop Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </button>
+            </a>
+
         </div>
         <div class="hero-dots">
-            <span class="dot active"></span> 
+            <span class="dot active"></span>
             <span class="dot"></span>
             <span class="dot"></span>
         </div>
@@ -130,14 +139,16 @@
                 </button>
             </div>
             <div>
-                <button class="btn-view-all">View All Products <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                    </svg>
-                </button>
+                <a href="product.html">
+                    <button class="btn-view-all">View All Products <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -146,12 +157,12 @@
     <section class="shop-by-categories">
         <h2>Shop By Categories</h2>
         <div class="category-buttons">
-            <a href="#" class="btn-category">Tennis Rackets</a>
-            <a href="#" class="btn-category">Badminton Rackets</a>
-            <a href="#" class="btn-category">Pickleball</a>
-            <a href="#" class="btn-category">Table Tennis</a>
-            <a href="#" class="btn-category">Racket Bags</a>
-            <a href="#" class="btn-category">Shoes</a>
+            <a href="/product.html" class="btn-category" data-filter="Tennis Racket">Tennis Rackets</a>
+            <a href="/product.html" class="btn-category" data-filter="Badminton Racket">Badminton Rackets</a>
+            <a href="/product.html" class="btn-category" data-filter="Pickleball">Pickleball</a>
+            <a href="/product.html" class="btn-category" data-filter="Table Tennis">Table Tennis</a>
+            <a href="/product.html" class="btn-category" data-filter="Bag">Racket Bags</a>
+            <a href="/product.html" class="btn-category" data-filter="Shoes">Shoes</a>
         </div>
     </section>
     <footer>
@@ -180,6 +191,8 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/afterLogin.js"></script>
+
 </body>
 
 </html>
