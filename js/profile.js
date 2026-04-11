@@ -46,5 +46,4 @@ btnCancel.addEventListener("click", function (e) {
     editMode.classList.add("d-none");
     viewMode.classList.remove("d-none");
     btnEdit.style.display = "";
-
 })

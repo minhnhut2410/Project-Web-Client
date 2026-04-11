@@ -1,0 +1,50 @@
+.about-header {
+    background-color: #131c2c;
+    padding: 100px;
+}
+
+.about-header h1 {
+    font-size: 50px;
+}
+
+.about-header p {
+    color: #d0d4d0;
+    font-size: 30px;
+}
+
+.about-story {
+    gap: 40px;
+    padding: 60px 100px
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.story-content h2{
+    font-size: 45px;
+}
+.story-content p {
+    font-size: 18px;
+    color: #4A5565;
+}
+.about-mission{
+    background-color: #F3F4F5;
+}
+.container-content{
+    padding: 60px 100px;
+}
+.avatar-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-width: 250px;
+    object-fit: cover;
+}
+.about-join-us{
+    background-color: #131c2c;
+    padding: 100px;
+    color: white;
+}
