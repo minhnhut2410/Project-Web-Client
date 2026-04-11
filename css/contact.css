@@ -1,0 +1,49 @@
+.about-header {
+    background-color: #131c2c;
+    padding: 100px;
+}
+
+.about-header h1 {
+    font-size: 50px;
+}
+
+.about-header p {
+    color: #d0d4d0;
+    font-size: 30px;
+}
+
+#toast-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 8px;
+
+}
+
+.toast-message {
+    background-color: white;
+    color: green;
+    padding: 16px 30px;
+    animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+    font-size: 16px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
