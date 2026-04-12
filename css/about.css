@@ -48,3 +48,39 @@
     padding: 100px;
     color: white;
 }
+@media (max-width: 768px) {
+
+    .about-header {
+        padding: 40px 20px;
+    }
+
+    .about-header h1 {
+        font-size: 32px;
+    }
+
+    .about-header p {
+        font-size: 18px;
+    }
+
+    .about-story {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .story-content h2 {
+        font-size: 28px;
+    }
+
+    .container-content {
+        padding: 40px 20px;
+    }
+
+    .about-join-us {
+        padding: 60px 20px;
+    }
+
+    .avatar-img {
+        max-width: 180px;
+    }
+}

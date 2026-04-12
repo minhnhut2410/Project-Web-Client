@@ -87,11 +87,16 @@
     cursor: pointer;
     flex: 0 0 calc((100% - 60px) / 4);
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    
 }
 
 .product-image {
-    height: 250px;
-    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
     object-fit: cover;
 }
 
@@ -197,7 +202,6 @@
     transform: scale(1.05);
 }
 
-/* --- FOOTER --- */
 #toast-container {
     position: fixed;
     top: 100px;
@@ -258,4 +262,22 @@ body.dark .shop-by-categories {
 }
 body.dark footer {
     background-color: #1e2939;
+}
+@media (max-width: 768px) {
+
+    .featured-products {
+        padding: 30px 15px;
+    }
+
+    .featured-products h2 {
+        font-size: 28px;
+    }
+
+    .product-grid {
+        gap: 10px;
+    }
+
+    .product-card {
+        flex: 0 0 75%;
+    }
 }
