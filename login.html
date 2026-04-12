@@ -15,10 +15,10 @@
         <h2>Sport Store</h2>
         <nav>
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/product.html">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="header-actions">
@@ -38,7 +38,7 @@
                     <circle cx="11" cy="11" r="8" />
                 </svg>
             </button>
-            <a href="/cart.html">
+            <a href="cart.html">
                 <button class="icon-btn position-relative me-4" aria-label="Cart">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -50,7 +50,7 @@
                     <badge id="cart-badge" class="cart-badge position-absolute">0</badge>
                 </button>
             </a>
-            <a href="#" class="btn-login">Login</a>
+            <a href="login.html" id="btn-login" class="btn-login">Login</a>
         </div>
     </header>
     <div class="login-wrapper d-flex justify-content-center align-items-center vh-100">
@@ -92,7 +92,7 @@
 
             <div class="login-footer mt-4">
                 <div class="text-center">
-                    <p> Don't have an account? <a href="/register.html" class="text-primary">Register Here</a></p>
+                    <p> Don't have an account? <a href="register.html" class="text-primary">Register Here</a></p>
                 </div>
             </div>
         </div>
@@ -122,7 +122,10 @@
             </div>
         </div>
     </footer>
-    <script src="/js/login.js"></script>
+    <script src="js/login.js"></script>
+        <script src="js/afterLogin.js"></script>
+
+    <script src="js/changeMode.js"></script>
 
 
 </body>

@@ -74,7 +74,7 @@ function handleInput(inputId, errorId) {
     input.addEventListener("input", function () {
         if (input.value.trim() !== "") {
             error.innerText = "";
-            input.classList.remove("is-invalid");
+            input.classList.remove("is-i    nvalid");
         }
     });
 }

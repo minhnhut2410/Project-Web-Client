@@ -83,3 +83,50 @@
         transform: translateY(-20px);
     }
 }
+
+/* Dark mode */
+
+body.dark {
+    background-color: #101828;
+    color: white;
+}
+body.dark .form-control {
+    background-color: #1e2939;
+    color: white;
+    border: 1px solid #374151;
+}
+
+body.dark .form-control::placeholder {
+    color: #9ca3af;
+}
+body.dark .btn-outline-dark {
+    color: white;
+    border-color: #4b5563;
+}
+
+body.dark .btn-outline-dark:hover {
+    background-color: #1e2939;
+    color: white;
+}
+
+body.dark .btn-outline-dark.active {
+    background-color: white;
+    color: black;
+}
+body.dark .product-card {
+    background-color: #1e2939;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+body.dark .category,
+body.dark .price,
+body.dark .product-info {
+    color: white;
+}
+body.dark header,
+body.dark footer {
+    background-color: #1e2939;
+}
+body.dark span{
+    color: white !important;
+}
