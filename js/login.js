@@ -43,10 +43,10 @@ if (loginForm) {
             }
             let listUser = JSON.parse(localStorage.getItem("listUser")) || [];
             const foundUser = listUser.find(u => u.email === user.email && u.password === user.password)
-            localStorage.setItem("currentUser", JSON.stringify(foundUser))
             if (foundUser) {
                 localStorage.setItem("loginSuccessful", "true");
-                window.location.href = "/index.html"
+                localStorage.setItem("currentUser", JSON.stringify(foundUser))
+                window.location.href = "index.html"
             } else {
                 emailError.innerText = "Invalid email or password";
                 emailInput.classList.add("is-invalid");

@@ -1,0 +1,19 @@
+body.dark #info-wrapper {
+    background-color: #1e2939;
+    color:white
+}
+body.dark .name{
+    color: #99a1af !important;
+}
+body.dark .email{
+    color: #99a1af !important;
+}
+body.dark input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+}
+
+body.dark input::placeholder {
+    color: white;
+}

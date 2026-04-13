@@ -97,3 +97,12 @@ if (localStorage.getItem("filter")) {
         }
     });
 }
+
+
+//search in navigation auto focus:
+window.addEventListener("load", function () {
+    if (localStorage.getItem("focusSearch") === "true") {
+        document.querySelector("#search-bar").focus();
+        localStorage.setItem("focusSearch", false);
+    }
+});

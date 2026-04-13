@@ -6,7 +6,19 @@
     padding: 8px 64px;
 }
 
-.btn-login-main {
-    padding: 8px 156px;
+body.dark .login-wrapper{
+    background-color: #101828;
+}
+body.dark .form-login {
+    background-color: #1e2939 !important;
+    color: white;
+}
+body.dark input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+}
 
+body.dark input::placeholder {
+    color: white;
 }

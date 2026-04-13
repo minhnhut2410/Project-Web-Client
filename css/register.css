@@ -1,121 +1,3 @@
-header {
-    position: sticky;
-    background-color: #F3F4F6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #eaeaea;
-    top: 0;
-    z-index: 1000;
-}
-
-body {
-    margin: 0;
-}
-
-button {
-    cursor: pointer;
-
-}
-
-header h2 {
-    font-size: 40px;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    margin-right: 150px;
-}
-
-nav ul li a {
-    font-size: 25px;
-}
-
-nav a:hover {
-    color: gray;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.icon-btn {
-    background: transparent;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-    padding: 0;
-    color: black;
-}
-
-.btn-login {
-    background-color: black;
-    color: white;
-    padding: 12px 26px;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-right: 50px;
-}
-
-.size-6 {
-    width: 30px;
-    height: 30px;
-}
-
-footer {
-    padding: 60px 5% 20px;
-    background-color: #F3F4F6;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-}
-
-.footer-column h3 {
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-.footer-column ul {
-    padding-left: 0;
-    margin: 0;
-}
-
-.footer-column ul li {
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 0;
-    font-size: 18px;
-    font-weight: 100;
-
-}
-
-.cart-badge {
-    top: -7px;
-    background-color: red;
-    border-radius: 50px;
-    color: white;
-    padding: 5px 10px;
-    font-size: 12px;
-    right: -17px;
-    display: none;
-}
-
 .register-wrapper {
     background-color: #fbfbfb;
 }
@@ -123,8 +5,19 @@ footer {
 .form-control {
     padding: 8px 64px;
 }
+body.dark .register-wrapper{
+    background-color: #101828;
+}
+body.dark .form-register {
+    background-color: #1e2939 !important;
+    color: white;
+}
+body.dark input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+}
 
-.btn-register-main {
-    padding: 8px 156px;
-
+body.dark input::placeholder {
+    color: white;
 }

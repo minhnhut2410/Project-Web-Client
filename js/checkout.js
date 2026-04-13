@@ -199,7 +199,7 @@ if (buttonOrder) {
             buttonConfirm.addEventListener("click", function () {
                 localStorage.setItem("showToast", "true");
                 localStorage.removeItem("cart");
-                window.location.href = "/index.html"
+                window.location.href = "index.html"
             })
 
         }

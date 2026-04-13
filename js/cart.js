@@ -102,7 +102,7 @@ if (total > 0) {
     proceedButton.innerText = "Proceed to Checkout";
     //click
     proceedButton.addEventListener("click", function() {
-        window.location.href = "/checkout.html"
+        window.location.href = "checkout.html"
     })
     orderSummary.appendChild(orderSummaryTitle);
     orderSummary.appendChild(subTotalWrapper);
@@ -255,7 +255,7 @@ if (total > 0) {
     p.textContent = "Add some products to get started!";
     cartSection.appendChild(p);
     const a = document.createElement("a");
-    a.href = "/product.html"
+    a.href = "product.html"
     a.classList.add("btn-view-all");
     a.innerHTML = `Show Now <svg xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
