@@ -149,14 +149,23 @@ if (buttonOrder) {
                 cardNumberError.innerText = "Please enter your card number";
                 cardNumber.classList.add("is-invalid");
                 isValid = false;
+            } else if (cardNumber.value.length != 16) {
+                cardNumberError.innerText = "Your card number must contain 16 digits";
+                cardNumber.classList.add("is-invalid");
+                isValid = false;
             }
             if (expiryDate.value.trim() === "") {
                 expiryDateError.innerText = "Please enter expiry date";
                 expiryDate.classList.add("is-invalid");
                 isValid = false;
             }
+            
             if (cvv.value.trim() === "") {
                 cvvError.innerText = "Please enter CVV";
+                cvv.classList.add("is-invalid");
+                isValid = false;
+            } else if (cvv.value.length != 3) {
+                cvvError.innerText = "CVV must contain 3 digits";
                 cvv.classList.add("is-invalid");
                 isValid = false;
             }
@@ -230,4 +239,12 @@ handleInput("cvv", "cvv-error");
 
 function onlyNumber(input) {
     input.value = input.value.replace(/\D/g, "");
+}
+
+function autoFormat(input) {
+    let value = input.value = input.value.replace(/\D/g, "");
+    if (input.value.length >= 3) {
+        value = value.slice(0, 2) + "/" + value.slice(2);
+    }
+    input.value = value
 }

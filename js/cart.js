@@ -23,6 +23,22 @@ const total = cart.length
 //             div
 //         div
 if (total > 0) {
+    function updateOrderSummary() {
+        let newSubTotal = 0;
+        
+        let newTax = 0;
+
+        let newTotal = 0;
+        cart.forEach(item => {
+            newSubTotal += (parseFloat(item.price.replace(/[^0-9.]/g, "")) * parseInt(item.quantity));
+        })
+        subTotalValue.innerText = "$" + newSubTotal.toFixed(2);
+        newTax = newSubTotal*0.15;
+        taxPrice.innerText = "$" + newTax.toFixed(2);
+        newTotal = newSubTotal + newTax + 10.00;
+        afterTaxPrice.innerText = "$"  + newTotal.toFixed(2);
+    }
+
     cartSection.classList.add("has-items");
     cartSection.classList.remove("empty");
 
@@ -101,7 +117,7 @@ if (total > 0) {
     proceedButton.classList.add("btn-proceed");
     proceedButton.innerText = "Proceed to Checkout";
     //click
-    proceedButton.addEventListener("click", function() {
+    proceedButton.addEventListener("click", function () {
         window.location.href = "checkout.html"
     })
     orderSummary.appendChild(orderSummaryTitle);
@@ -199,8 +215,8 @@ if (total > 0) {
             const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
             const total = (parseInt(quantity.textContent) * price).toFixed(2)
             totalPrice.innerText = "$" + total + " CAD";
-            updateCart()
-
+            updateCart();
+            updateOrderSummary();
         })
         buttonPlus.addEventListener('click', function () {
             quantity.textContent = parseInt(quantity.textContent) + 1;
@@ -210,6 +226,7 @@ if (total > 0) {
             const total = (parseInt(quantity.textContent) * price).toFixed(2)
             totalPrice.innerText = "$" + total + " CAD";
             updateCart()
+            updateOrderSummary();
         })
 
         // <div class="product-card">
